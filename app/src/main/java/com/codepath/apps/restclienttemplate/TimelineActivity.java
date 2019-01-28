@@ -103,7 +103,7 @@ public class TimelineActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
+                Log.e("failure", throwable.toString());
             }
         });
     }
