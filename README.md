@@ -42,7 +42,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Working with the Twitter API deffinitely helped me alot reinforce my knowledge on RecyclerView and i also learned about the PulltoRefresh Feature. Yet, i still have to implement some optionals to give my app a more "twitterish" flavor.
 
 ## Open-source libraries used
 
@@ -51,7 +51,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2019 Endi Caushi
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
