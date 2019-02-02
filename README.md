@@ -36,7 +36,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/eMIKuRtHmW.gif' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/Mj9yJ9kkP7.gif' width='' alt='Video Walkthrough' />
 
 
 
