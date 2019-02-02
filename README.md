@@ -38,7 +38,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/eMIKuRtHmW.gif' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
 
 ## Notes
 
