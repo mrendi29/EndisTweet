@@ -11,7 +11,7 @@ The following **required** functionality is completed:
 - [x] User can **sign in to Twitter** using OAuth login
 - [x]	User can **view tweets from their home timeline**
   - [x] User is displayed the username, name, and body for each tweet
-  - [ ] User is displayed the [relative timestamp](https://gist.github.com/nesquena/f786232f5ef72f6e10a7) for each tweet "8m", "7h"
+  - [ ] User is displayed the relative timestamp for each tweet "8m", "7h"
 - [x] User can refresh tweets timeline by pulling down to refresh
 
 The following **optional** features are implemented:
@@ -20,7 +20,7 @@ The following **optional** features are implemented:
 - [ ] User can tap a tweet to display a "detailed" view of that tweet
 - [ ] User can open the twitter app offline and see last loaded tweets
 - [ ] On the Twitter timeline, leverage the CoordinatorLayout to apply scrolling behavior that hides / shows the toolbar.
-- [ ] Replace all icon drawables and other static image assets with [vector drawables](http://guides.codepath.com/android/Drawables#vector-drawables) where appropriate.
+- [ ] Replace all icon drawables and other static image assets with vector drawables where appropriate.
 - [ ] User can see embedded image media within the tweet detail view
 - [ ] User sees an **indeterminate progress indicator** when any background or network task is happening
 - [ ] User can **see embedded image media within a tweet** on list or detail view.
