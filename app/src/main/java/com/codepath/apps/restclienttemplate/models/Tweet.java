@@ -8,6 +8,7 @@ public class Tweet {
     public long uid;
     public String createdAt;
     public User user;
+    public String bodyImgUrl;
 
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
@@ -16,9 +17,10 @@ public class Tweet {
         tweet.uid = jsonObject.getLong("id");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+        //  tweet.bodyImgUrl = jsonObject.getString("media_url");
         return tweet;
 
     }
 
-    
+
 }

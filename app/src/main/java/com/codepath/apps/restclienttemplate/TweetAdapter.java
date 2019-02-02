@@ -89,6 +89,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         public TextView tvScreenName;
         public TextView tvBody;
         public TextView tvTimeCreated;
+        public ImageView ivUser;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -96,6 +97,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvBody = itemView.findViewById(R.id.tvBody);
             tvTimeCreated = itemView.findViewById(R.id.tvTime);
+            ivUser = itemView.findViewById(R.id.ivUser);
         }
 
         //Our method created to bind the data to the holder.
@@ -104,6 +106,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvScreenName.setText(tweet.user.screenName);
             tvTimeCreated.setText(getRelativeTimeAgo(tweet.createdAt));
             Glide.with(context).load(tweet.user.profileImgUrl).into(ivProfileImg);
+
+            //Glide.with(context).load(tweet.bodyImgUrl).into(ivUser);
+
         }
     }
 }

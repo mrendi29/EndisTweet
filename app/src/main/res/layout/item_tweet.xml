@@ -39,4 +39,13 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="12dp"
         android:text="1min" />
+
+    <ImageView
+        android:id="@+id/ivUser"
+        android:layout_width="343dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/tvScreenName"
+        android:layout_marginTop="63dp"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
 </RelativeLayout>
