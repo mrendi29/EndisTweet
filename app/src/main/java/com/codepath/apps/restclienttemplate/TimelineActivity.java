@@ -68,7 +68,7 @@ public class TimelineActivity extends AppCompatActivity {
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-
+                Log.i("Endi", "Scolling no data");
                 loadNextDataFromApi(page);
 
             }
@@ -99,7 +99,7 @@ public class TimelineActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-                adapter.clear();
+//                adapter.clear();
                 adapter.addTweets(tweetsToAppend);
                 adapter.notifyItemRangeInserted(adapter.getItemCount(), tweets.size() - 1);
 
