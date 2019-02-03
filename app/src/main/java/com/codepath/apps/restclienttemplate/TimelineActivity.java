@@ -31,6 +31,27 @@ public class TimelineActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
 
+    static long tweetUID = Long.MAX_VALUE;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.compose) {
+//            Toast.makeText(this, "Succesfully Tapped ", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, ComposeActivity.class);
+            startActivity(i);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +93,7 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 Log.i("Endi", "Scolling no data");
-                loadNextDataFromApi(page);
+                loadNextDataFromApi();
 
             }
         };
@@ -82,27 +103,8 @@ public class TimelineActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.compose) {
-//            Toast.makeText(this, "Succesfully Tapped ", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, ComposeActivity.class);
-            startActivity(i);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void loadNextDataFromApi(int offset) {
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
+    private void loadNextDataFromApi() {
+        client.getNextPageOfTweets(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 Log.d("sucess1", response.toString());
@@ -124,7 +126,7 @@ public class TimelineActivity extends AppCompatActivity {
                 }
 //                adapter.clear();
                 adapter.addTweets(tweetsToAppend);
-                adapter.notifyItemRangeInserted(adapter.getItemCount(), tweets.size() - 1);
+                // adapter.notifyItemRangeInserted(adapter.getItemCount(), tweets.size() - 1);
 
             }
 
@@ -137,7 +139,7 @@ public class TimelineActivity extends AppCompatActivity {
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
                 Log.e("failure1", throwable.toString());
             }
-        });
+        }, tweetUID);
     }
 
     private void populateHomeTimeline() {
@@ -151,11 +153,16 @@ public class TimelineActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); ++i) {
 
                     try {
+
                         //Convert each jsonObject into a tweet object
                         JSONObject jsonObject = response.getJSONObject(i);
                         Tweet tweet = Tweet.fromJson(jsonObject);
                         //Add the tweet into our data source
                         tweetsToAdd.add(tweet);
+
+                        if (tweet.uid < tweetUID) {
+                            tweetUID = tweet.uid;
+                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();

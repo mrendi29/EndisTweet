@@ -37,7 +37,7 @@ public class ComposeActivity extends AppCompatActivity {
                     Toast.makeText(ComposeActivity.this, "Length should be less than 140 Characters", Toast.LENGTH_LONG).show();
                 }
                 //If you tap on button make API call to Twitter
-                
+
             }
         });
 
