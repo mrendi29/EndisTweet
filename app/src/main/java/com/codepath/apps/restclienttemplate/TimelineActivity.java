@@ -100,7 +100,6 @@ public class TimelineActivity extends AppCompatActivity {
         // Adds the scroll listener to RecyclerView
         rvTweets.addOnScrollListener(scrollListener);
 
-
     }
 
     private void loadNextDataFromApi() {
@@ -120,6 +119,11 @@ public class TimelineActivity extends AppCompatActivity {
                         //Add the tweet into our data source
                         tweetsToAppend.add(tweet);
 
+                        /**
+                         * I needed to update the tweetUID again as the id will be used several times
+                         * if we don't update tweetUID all the time, that means we're just getting the older tweets once,
+                         * and after that, we're getting the same old tweets again
+                         */
                         if (tweet.uid < tweetUID) {
                             tweetUID = tweet.uid;
                         }
@@ -128,8 +132,13 @@ public class TimelineActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-//                adapter.clear();
+                /**
+                 * adapter.clear();
+                 * we don't want to call adapter.clear(),
+                 * because that would clear the original tweets we loaded
+                 */
                 adapter.addTweets(tweetsToAppend);
+
                 // adapter.notifyItemRangeInserted(adapter.getItemCount(), tweets.size() - 1);
 
             }
@@ -164,6 +173,12 @@ public class TimelineActivity extends AppCompatActivity {
                         //Add the tweet into our data source
                         tweetsToAdd.add(tweet);
 
+                        /**
+                         *instead of checking tweet.uid > tweetUID, w
+                         * e actually want tweet.uid < tweetUID before we set it.
+                         * because the uids are getting smaller as we scroll down,
+                         * so we want the uid of the last tweet we loaded
+                         */
                         if (tweet.uid < tweetUID) {
                             tweetUID = tweet.uid;
                         }
