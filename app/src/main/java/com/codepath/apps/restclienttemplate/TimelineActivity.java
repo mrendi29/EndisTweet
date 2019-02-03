@@ -120,6 +120,10 @@ public class TimelineActivity extends AppCompatActivity {
                         //Add the tweet into our data source
                         tweetsToAppend.add(tweet);
 
+                        if (tweet.uid < tweetUID) {
+                            tweetUID = tweet.uid;
+                        }
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
