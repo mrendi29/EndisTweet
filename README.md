@@ -28,7 +28,7 @@ The following **optional** features are implemented:
 
 The following **bonus** features are implemented:
 
-- [ ] User can view more tweets as they scroll with infinite pagination
+- [x] User can view more tweets as they scroll with infinite pagination
 - [ ] Compose tweet functionality is build using modal overlay
 - [ ] Use Parcelable instead of Serializable using the popular [Parceler library](http://guides.codepath.com/android/Using-Parceler).
 - [ ] Replace all icon drawables and other static image assets with [vector drawables](http://guides.codepath.com/android/Drawables#vector-drawables) where appropriate.
@@ -63,7 +63,7 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] User can view more tweets as they scroll with infinite pagination
+- [x] User can view more tweets as they scroll with infinite pagination
 - [ ] User can tap a tweet to display a "detailed" view of that tweet
 - [ ] User can open the twitter app offline and see last loaded tweets
 - [ ] On the Twitter timeline, leverage the CoordinatorLayout to apply scrolling behavior that hides / shows the toolbar.
