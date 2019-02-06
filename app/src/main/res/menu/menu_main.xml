@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/mainMenu"
+        android:icon="@mipmap/ic_launcher_round"
+        android:orderInCategory="1"
+        android:title=""
+        app:showAsAction="always" />
+    <item
         android:id="@+id/compose"
         android:icon="@drawable/ic_vector_compose"
         android:title="Compose"
-
-
+        android:orderInCategory="100"
         app:showAsAction="always" />
+
+
 </menu>
