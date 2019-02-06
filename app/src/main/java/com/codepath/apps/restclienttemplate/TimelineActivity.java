@@ -16,6 +16,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class TimelineActivity extends AppCompatActivity {
     private TwitterClient client;
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
+    private static final int REQUEST_CODE = 120;
 
     static long tweetUID = Long.MAX_VALUE;
 
@@ -46,7 +48,7 @@ public class TimelineActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.compose) {
 //            Toast.makeText(this, "Succesfully Tapped ", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, ComposeActivity.class);
-            startActivity(i);
+            startActivityForResult(i, REQUEST_CODE);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -206,5 +208,22 @@ public class TimelineActivity extends AppCompatActivity {
                 Log.e("failure", throwable.toString());
             }
         });
+    }
+
+    // ActivityOne.java, time to handle the result of the sub-activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+            // Extract   from result extras
+            Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
+            //Add the tweet to the first position
+            tweets.add(0, tweet);
+            //Notify the adapter for the inserted object
+            adapter.notifyItemInserted(0);
+            //Smoothly scroll up since the recycler view does not notice it on first.
+            rvTweets.smoothScrollToPosition(0);
+
+        }
     }
 }

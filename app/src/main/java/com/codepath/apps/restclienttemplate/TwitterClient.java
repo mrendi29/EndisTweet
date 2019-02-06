@@ -60,7 +60,14 @@ public class TwitterClient extends OAuthBaseClient {
         client.get(apiUrl, params, handler);
     }
 
-
+    //Network call for composing tweets.
+    public void composeTweet(AsyncHttpResponseHandler handler, String tweetContent) {
+        String apiUrl = getApiUrl("statuses/update.json");
+        RequestParams params = new RequestParams();
+        params.put("status", tweetContent);
+        //This tame we will have to post and not to get a tweet back.
+        client.post(apiUrl, params, handler);
+    }
 
     /* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
      * 	  i.e getApiUrl("statuses/home_timeline.json");
