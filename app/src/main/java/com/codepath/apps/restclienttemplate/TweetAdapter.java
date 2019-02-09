@@ -97,7 +97,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvBody = itemView.findViewById(R.id.tvBody);
             tvTimeCreated = itemView.findViewById(R.id.tvTime);
-            ivUser = itemView.findViewById(R.id.ivUser);
+//            ivUser = itemView.findViewById(R.id.ivUser);
         }
 
         //Our method created to bind the data to the holder.
