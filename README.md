@@ -31,7 +31,7 @@ The following **bonus** features are implemented:
 - [x] User can view more tweets as they scroll with infinite pagination
 - [ ] Compose tweet functionality is build using modal overlay
 - [x] Use Parcelable instead of Serializable using the popular Parceler library.
-- [ ] Replace all icon drawables and other static image assets with [vector drawables] where appropriate.
+- [x] Replace all icon drawables and other static image assets with [vector drawables] where appropriate.
 - [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
 - [ ] User can view following / followers list through any profile they view.
 - [ ] User can see embedded image media within the tweet detail view
@@ -47,7 +47,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/l2xx345jsi.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Part 1
 
