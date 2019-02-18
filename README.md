@@ -2,7 +2,7 @@
 
 This is an android app that allows a user to view his Twitter timeline. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
 
-Time spent: 10 hours spent in total
+Time spent: 18 hours spent in total
 ## Part 2 
 ## User Stories
 
